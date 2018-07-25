@@ -15,15 +15,12 @@ public class HomeTaskTest {
 
     }
 
-    // 1 Students
-    public static void studentTask1(){
+    //1 Students
+    private static void studentTask1(){
         Student[] students = new Student[10];
-        for(int i = 0; i < students.length; i++){
-            students[i] = Student.createStudent();
-        }
-
-        for(int i = 0; i < students.length; i++) {
-            System.out.println("\n - Student " + i + " -");
+        for(int i = 0, j = 1; i < students.length; i++, j++){
+            System.out.format("\n - Student %d - \n", j);
+            students[i] = new Student();
             students[i].outPrintStudent();
         }
 
@@ -32,25 +29,25 @@ public class HomeTaskTest {
         highAchievers(students);
     }
 
-    public static void highAchievers(Student[] students) {
+    private static void highAchievers(Student[] students) {
 
         System.out.println("\n\n\t--- High Achievers ---\n\n");
 
         short[] marks;
-        for(int i = 0; i < students.length; i++) {
+        for (Student student : students) {
             int countMarks = 0;
-            marks = students[i].getMarks();
-            for(int j = 0; j < marks.length; j++) {
-                if(marks[j] >= 4) {
+            marks = student.getMarks();
+            for (short mark : marks) {
+                if (mark >= 4) {
                     countMarks++;
                     if (countMarks == marks.length)
-                        System.out.println(students[i] + "\n");
+                        System.out.println(student + "\n");
                 }
             }
         }
     }
 
-    public static void sortStudents(Student[] students) {
+    private static void sortStudents(Student[] students) {
 //        Insertion sort:
 
 //        Student tmp;
@@ -66,38 +63,53 @@ public class HomeTaskTest {
 
         System.out.println("\n\n\t--- Sorted students ---\n\n");
 
-        for(int i = 0; i < students.length; i++) {
-            System.out.println("\n - Student " + i + " -");
+        for(int i = 0, j = 1; i < students.length; i++, j++) {
+            System.out.format("\n - Student %d - \n", j);
             students[i].outPrintStudent();
         }
 
     }
 
     //3 NewClass
-    public static void newClassTask3() {
-        NewClass nc = new NewClass(12, 30.27);
+    private static void newClassTask3() {
+        NewClass nc = new NewClass(15, 30.27);
 
         nc.outPrint();
-        System.out.println("sum:" + nc.sum());
+        System.out.format("sum: %.2f\n", nc.sum());
         nc.findMax();
         nc.setOne(62);
         nc.setTwo(62);
+        nc.outPrint();
         nc.findMax();
     }
 
     //4 DecCounter
-    public static void decCounterTask4() {
+    private static void decCounterTask4() {
         DecCounter dc1 = new DecCounter();
         DecCounter dc2 = new DecCounter(50);
 
+        //first counter
         System.out.println("dc1: " + dc1.getCounter());
+        //from 100 to 150
         dc1.count(150);
-        dc1.decrem(); // +1
+        try {
+            dc1.decrem(); // -1
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("New dc1: " + dc1.getCounter() + "\n");
 
+        //second counter
         System.out.println("dc2: " + dc2.getCounter());
+        //from 50 to 25
         dc2.count(25);
-        for(int i = 1; i <= 5; i++) dc2.increm();// +5
+        for(int i = 1; i <= 5; i++) {
+            try {
+                dc2.increm();// +5
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         System.out.println("New dc2: " + dc2.getCounter());
 
     }

@@ -18,7 +18,7 @@ public class NewClass {
     }
 
     public void outPrint() {
-        System.out.println("one: " + one + "\ntwo: " + two);
+        System.out.format("one: %d\ntwo: %.2f\n", one, two);
     }
 
     public double sum() {
@@ -32,10 +32,8 @@ public class NewClass {
         else if (two > one)
             System.out.println(two + ": two is max value.");
 
-        else System.out.println("one and two are equal.");
+        else System.out.format("one and two are equal: %.0f.", two);
 
     }
-
-
 
 }

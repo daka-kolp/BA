@@ -11,11 +11,13 @@ public class DecCounter {
         this.counter = 100;
     }
 
-    public int increm(){
+    public int increm() throws InterruptedException {
+        Thread.sleep(100);
         return ++counter;
     }
 
-    public int decrem(){
+    public int decrem() throws InterruptedException {
+        Thread.sleep(100);
         return --counter;
     }
 
@@ -25,14 +27,19 @@ public class DecCounter {
 
     public void count(int border) {
         System.out.println("\nThe counting: ");
-        if(border > counter) {
-            while(counter != border){
-                System.out.print(increm() + " ");
+
+        try {
+            if (border > counter) {
+                while (counter != border) {
+                    System.out.print(increm() + " ");
+                }
+            } else if (border < counter) {
+                while (counter != border)
+                    System.out.print(decrem() + " ");
             }
-        } else if(border < counter) {
-            while (counter != border)
-                System.out.print(decrem() + " ");
+            System.out.println("\n");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        System.out.println("\n");
     }
 }
