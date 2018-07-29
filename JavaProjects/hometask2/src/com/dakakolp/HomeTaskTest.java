@@ -16,9 +16,9 @@ public class HomeTaskTest {
     }
 
     //1 Students
-    private static void studentTask1(){
+    private static void studentTask1() {
         Student[] students = new Student[10];
-        for(int i = 0, j = 1; i < students.length; i++, j++){
+        for (int i = 0, j = 1; i < students.length; i++, j++) {
             System.out.format("\n - Student %d - \n", j);
             students[i] = new Student();
             students[i].outPrintStudent();
@@ -63,7 +63,7 @@ public class HomeTaskTest {
 
         System.out.println("\n\n\t--- Sorted students ---\n\n");
 
-        for(int i = 0, j = 1; i < students.length; i++, j++) {
+        for (int i = 0, j = 1; i < students.length; i++, j++) {
             System.out.format("\n - Student %d - \n", j);
             students[i].outPrintStudent();
         }
@@ -103,7 +103,7 @@ public class HomeTaskTest {
         System.out.println("dc2: " + dc2.getCounter());
         //from 50 to 25
         dc2.count(25);
-        for(int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 5; i++) {
             try {
                 dc2.increm();// +5
             } catch (InterruptedException e) {
