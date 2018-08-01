@@ -56,11 +56,11 @@ public class Tsk3 {
         e.createEmployee("Tanya", 50.3, 18.3, 23.2, 15.5);
         e.outPrint();
 
-        e.createEmployee("Sveta", 23.2, 15.5, 1.8, 26.3, 5.62);
-        e.outPrint();
-
         double[] arr = {12.5, 13.7, 18.9};
         e.createEmployee("Ivan", arr);
+        e.outPrint();
+
+        e.createEmployee("Mira");
         e.outPrint();
     }
 

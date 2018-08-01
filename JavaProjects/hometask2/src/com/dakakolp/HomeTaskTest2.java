@@ -2,7 +2,7 @@ package com.dakakolp;
 
 import java.util.Arrays;
 
-public class HomeTaskTest {
+public class HomeTaskTest2 {
     public static void main(String[] args) {
         //1
         studentTask1();
