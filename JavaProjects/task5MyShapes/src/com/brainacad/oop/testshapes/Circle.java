@@ -1,10 +1,16 @@
 package com.brainacad.oop.testshapes;
 
-public class Circle extends Shape {
+import java.util.Comparator;
 
-    private double radius;
+public class Circle extends Shape implements Comparable<Circle>{
 
     private static double sumCircleArea;
+    private double radius;
+
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
 
     public static double getSumCircleArea() {
         return sumCircleArea;
@@ -19,13 +25,19 @@ public class Circle extends Shape {
         return Math.PI * Math.pow(radius, 2);
     }
 
-    public Circle(String color, double radius) {
-        super(color);
-        this.radius = radius;
-    }
-
     @Override
     public String toString() {
         return super.toString() + " radius = " + radius;
     }
+
+    @Override
+    public void draw() {
+        System.out.printf("\n%s Circle's area: %.2f\n", toString(), calcArea());
+    }
+
+    @Override
+    public int compareTo(Circle o) {
+        return Double.compare(this.calcArea(), o.calcArea());
+    }
+
 }
